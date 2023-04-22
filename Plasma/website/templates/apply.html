@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Request-Application{% endblock %}
+{% block content %}
+
+<br>
+<br>
+<br>
+<form action="" method="POST">
+    <h3 align="centre">{{title}}</h3>
+        <p>
+           {{ form.name.label }} <br> 
+           {{form.name(size=30)}}
+        </p>
+
+
+        <p>
+           {{ form.reg_no.label }} <br>
+           {{form.reg_no}}
+        </p>
+
+   
+        <p>
+           {{ form.email.label }} <br>
+           {{form.email}}
+        </p>
+
+
+        <p>
+           {{ form.blood_group.label }} <br>
+           {{form.blood_group(size=10)}}
+        </p>
+    
+
+   
+        <p>
+           {{ form.date_details.label }} <br> 
+           {{ form.date_details(size=50) }}
+        </p>
+    
+
+   
+        <p>
+           {{ form.address.label }} <br>
+           {{ form.address(size=200) }}
+        </p>    
+
+   
+        <p>
+           {{ form.details.label }} <br>
+           {{form.details(size=4000)}}</p>
+    
+
+        <p>{{ form.submit() }}</p>
+
+</form>
+
+{% endblock %}

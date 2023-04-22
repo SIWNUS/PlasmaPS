@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %}
+{% block content %}
+
+<br>
+<br>
+<br>
+ <h3 align="centre">{{title}}</h3>
+<form action=""  method="POST">
+        <p>{{ form1.name.label }} <br>
+           {{ form1.name(size=30) }} </p>
+         
+        <p>{{ form1.email.label }} <br>
+           {{ form1.email(size=100) }} </p>
+
+        <p>{{ form1.password.label }} <br>
+           {{ form1.password(size=50) }} </p>
+
+        <p>{{ form1.blood_group.label }} <br>
+           {{ form1.blood_group(size=10) }} </p>
+
+        <p>{{ form1.age.label }} <br>
+           {{ form1.age }} </p>
+
+       <br> <p>{{ form1.submit() }}</p>
+
+</form>
+
+{% endblock %}
+
