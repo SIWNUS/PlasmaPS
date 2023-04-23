@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}User List{% endblock %}
+{% block content %}
+
+
+<h3> {{title}} </h3>
+
+<table class="styled-table">
+    <tr> 
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Blood Group</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.blood_group}}</td>
+        {% if user.id != 1 %}
+        <td><a href="{{url_for('auth.admin_delete', id = user.id)}}" class="text-danger">Delete</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

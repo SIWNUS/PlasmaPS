@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Update User...{% endblock %}
+{% block content %}
+<br>
+<br>
+{% if current_user.id == user_to_update.id %} 
+<h3 align="centre">Update User....</h3>
+<form action="/user-update/{{user_to_update.id}}"  method="POST">
+        <p>{{ form.name.label }} <br>
+           {{ form.name(size=30, value=user_to_update.name) }} </p>
+         
+        <p>{{ form.email.label }} <br>
+           {{ form.email(size=100,  value=user_to_update.email) }} </p>
+
+        <p>{{ form.password.label }} <br>
+           {{ form.password(size=50, value=user_to_update.password) }} </p>
+
+        <p>{{ form.blood_group.label }} <br>
+           {{ form.blood_group(size=10, value=user_to_update.blood_group) }} </p>
+
+        <p>{{ form.age.label }} <br>
+           {{ form.age( value=user_to_update.age) }} </p>
+
+       <br> <p>{{ form.submit(class="btn btn-secondary") }}</p>
+
+</form>
+<br/><br/>
+
+{% else %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Sorry! You are not authorised to edit this page!
+    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <h2> Access Denied </h2>
+  <p> Sorry! you are not authorised to access this user profile.<a href="/">Please go back. </a></p>
+{% endif %}
+{% endblock %}
+
