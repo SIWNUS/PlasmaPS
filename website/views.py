@@ -54,7 +54,7 @@ def Request():
 def delete(id):
     entry_to_delete = Plasma.query.get_or_404(id)
     id =  current_user.email
-    if id == entry_to_delete.email:
+    if id == entry_to_delete.email or current_user.id == 1:
         try:
             db.session.delete(entry_to_delete)
             db.session.commit()
