@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Request-Application{% endblock %}
+{% block content %}
+
+<br>
+<h3 align="center" class="fs-3 fw-bolder">Request Application</h3>
+<br>
+<form action="" method="POST">
+   
+        <p>
+           {{ form.name.label }} <br> 
+           {{form.name()}}
+        </p>
+
+
+        <p>
+           {{ form.reg_no.label }} <br>
+           {{form.reg_no}}
+        </p>
+
+   
+        <p>
+           {{ form.email.label }} <br>
+           {{form.email}}
+        </p>
+
+
+        <p>
+           {{ form.blood_group.label }} <br>
+           {{form.blood_group()}}
+        </p>
+    
+
+   
+        <p>
+           {{ form.date_details.label }} <br> 
+           {{ form.date_details() }}
+        </p>
+    
+
+   
+        <p>
+           {{ form.address.label }} <br>
+           {{ form.address() }}
+        </p>    
+
+   
+        <p>
+           {{ form.details.label }} <br>
+           {{form.details()}}</p>
+    
+
+        <p>{{ form.submit() }}</p>
+
+</form>
+
+{% endblock %}

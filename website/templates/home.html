@@ -1,0 +1,207 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+
+<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% if current_user.is_authenticated %}
+      <div class="carousel-item active" style="background-image: url('https://intranet.cb.amrita.edu/sites/default/files/2022-06/8I4A0951%20copy.jpg'), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); background-repeat: no-repeat; background-attachment: fixed;background-size: 100% 100%">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Post your Plasma Drives here.</h1>
+            <p>Fill the form and post your plasma drives here with us to reach more willing donors.</p>
+            <p><a class="btn btn-lg btn-primary" href="/request">Post now</a></p>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="carousel-item active" style="background-image: url('https://www.redcross.org/content/dam/redcross/about-us/news/2021/731501tier_369what_is_ccp_003.png.img.png'), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); background-repeat: no-repeat; background-attachment: fixed;background-size: 100% 100%">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Start Donating Today.</h1>
+            <p>Become a member of our site by signing in and start donating plasma.</p>
+            <p><a class="btn btn-lg btn-danger" href="/donor-register">Register</a></p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="carousel-item" style="background-image: url('https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/19598/paul-mates-donating-convalescent-plasma-manchester.jpg'), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Why Donate Plasma?</h1>
+            <p>What is the purpose of me donating my plasma?</p>
+            <p><a class="btn btn-lg btn-primary" href="/info-plasma">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url('https://www.ebsco.com/sites/default/files/acquiadam-assets/male-doctor-laptop-typing-pen-blog-image-780.jpg'), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-end">
+             <h1>Am I a Donor?</h1>
+            <p>See if you meet dodnor requirements here.</p>
+            <p><a class="btn btn-lg btn-primary" href="/Donor">Read here</a></p>
+          </div>
+        </div>
+      </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+</div>
+
+<div class="container marketing">
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">What is plasma? <span class="text-body-secondary"> Why is it important?</span></h2>
+      <p class="lead">Learn some interesting facts about plasma and know how important it is to both you and society.</p>
+      <p><a class="btn btn-lg btn-primary" href="/info-plasma">Read here</a></p>
+    </div>
+    <div class="col-md-2">
+      <placeholder width="30px" height="30px" background="var(--bs-secondary-bg)" color="var(--bs-secondary-color)" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" >
+      <img src="https://my.clevelandclinic.org/-/scassets/images/org/health/articles/22865-plasma" alt="Plasma in blood compostion" width="400" height="400">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Am I Allowed to host a drive? <span class="text-body-secondary">What is the criteria for hosting a plasma drive?</span></h2>
+      <p class="lead">Learn about who can host a plasma drive and what are the requirements to be eligible for hosting a drive.</p>
+      <p><a class="btn btn-lg btn-primary" href="/recipient">Read here</a></p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <placeholder width="500" height="500" background="var(--bs-secondary-bg)" color="var(--bs-secondary-color)" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" >
+      <img src="https://api.army.mil/e2/c/images/2020/09/03/df2fea55/original.jpg" alt="Plasma Drive in action" width="400" height="400">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <placeholder width="100%" height="100%" background="var(--bs-secondary-color)" text="false" title="false">
+      <div class="container">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+    </div>  
+    <div class="carousel-item">
+      <div class="container">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+    </div>  
+    <div class="carousel-item">
+      <div class="container">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<h3> What is Blood Plasma? </h3>
+<p>
+    Blood plasma is a light amber-colored liquid component of blood in which blood cells are absent, but contains proteins and other constituents of whole blood in suspension. It makes up about 55% of the body's total blood volume. It is the intravascular part of extracellular fluid (all body fluid outside cells). It is mostly water (up to 95% by volume), and contains important dissolved proteins (6–8%; e.g., serum albumins, globulins, and fibrinogen), glucose, clotting factors, electrolytes (Na+, Ca2+, Mg2+, HCO3−, Cl−, etc.), hormones, carbon dioxide (plasma being the main medium for excretory product transportation), and oxygen. It plays a vital role in an intravascular osmotic effect that keeps electrolyte concentration balanced and protects the body from infection and other blood-related disorders.<br>
+</p>
+<p>
+    Blood plasma is separated from the blood by spinning a vessel of fresh blood containing an anticoagulant in a centrifuge until the blood cells fall to the bottom of the tube. The blood plasma is then poured or drawn off.[4] For point-of-care testing applications, plasma can be extracted from whole blood via filtration or via agglutination to allow for rapid testing of specific biomarkers. Blood plasma has a density of approximately 1,025 kg/m3 (1.025 g/ml). Blood serum is blood plasma without clotting factors. Plasmapheresis is a medical therapy that involves blood plasma extraction, treatment, and reintegration.<br>
+</p>
+<p>
+    Fresh frozen plasma is on the WHO Model List of Essential Medicines, the most important medications needed in a basic health system.[8] It is of critical importance in the treatment of many types of trauma which result in blood loss, and is therefore kept stocked universally in all medical facilities capable of treating trauma (e.g., trauma centers, hospitals, and ambulances) or that pose a risk of patient blood loss such as surgical suite facilities.<br>
+</p>
+
+<div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/FreshFrozenPlasma.JPG/220px-FreshFrozenPlasma.JPG" alt="Plasma" srcset="">
+</div>
+
+<div>
+<h3> Plasma Donation </h3>
+    <p>
+        Plasma as a blood product prepared from blood donations is used in blood transfusions, typically as fresh frozen plasma (FFP) or Plasma Frozen within 24 hours after phlebotomy (PF24). When donating whole blood or packed red blood cell (PRBC) transfusions, O- is the most desirable and is considered a "universal donor," since it has neither A nor B antigens and can be safely transfused to most recipients. Type AB+ is the "universal recipient" type for PRBC donations. However, for plasma the situation is somewhat reversed. Blood donation centers will sometimes collect only plasma from AB donors through apheresis, as their plasma does not contain the antibodies that may cross react with recipient antigens. As such, AB is often considered the "universal donor" for plasma. Special programs exist just to cater to the male AB plasma donor, because of concerns about transfusion related acute lung injury (TRALI) and female donors who may have higher leukocyte antibodies. However, some studies show an increased risk of TRALI despite increased leukocyte antibodies in women who have been pregnant.<br />
+    </p>
+
+    <div>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fenwal_Erythropheresis_machine_for_plasmapheresis.jpg/220px-Fenwal_Erythropheresis_machine_for_plasmapheresis.jpg" alt="Plasma" srcset="">
+    </div>
+    <br />
+</div>
+
+<div>
+<h3> Plasma Donors </h3>
+<p>
+    There many things to know about being donors. Not just anyone can donate plasma. There a set of fitness and health requirements that should be fulfilled to be eligible to donate plasma.
+</p>
+<div>
+    <a href="/Donor">
+       <button class="btn btn-primary">Know More About Donating Plasma</button>
+    </a>
+</div>
+<br>
+</div>
+-->
+{% endblock %}
