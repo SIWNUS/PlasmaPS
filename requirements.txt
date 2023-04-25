@@ -3,6 +3,7 @@ Flask-SQLAlchemy
 Flask-Migrate
 Flask-SQLAlchemy
 Flask-WTF
+Flask-Login
 Bootstrap-Flask
 Jinja2
 SQLAlchemy
