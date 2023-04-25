@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-WTF
+Bootstrap-Flask
+Jinja2
+SQLAlchemy
+Werkzeug
+WTForms
+wtforms-html5
+email-validator

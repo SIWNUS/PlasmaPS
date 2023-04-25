@@ -40,7 +40,7 @@ def logout():
 @auth.route('/donor-register', methods=['GET', 'POST'])
 def donor_register():
     form1 = DonorForm()
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST':
         email = request.form.get('email')
         name = request.form.get('name')
         password = request.form.get('password')
