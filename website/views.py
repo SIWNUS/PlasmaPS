@@ -18,6 +18,10 @@ def Donor():
 def info_plasma():
     return render_template("plasma.html", user=current_user)
 
+@views.route('/info-donor')
+def info_donor():
+    return render_template("donor-info.html", user=current_user)
+
 @views.route('/recipient')
 def recipient():
     return render_template("recipient.html", user=current_user)

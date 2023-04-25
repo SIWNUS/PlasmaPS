@@ -16,13 +16,13 @@ class DonorForm(FlaskForm):
     submit = SubmitField("submit")
 
 class LoginForm(FlaskForm):
-    email = StringField("Email", validators=[DataRequired()])
+    email = EmailField("Email", validators=[DataRequired(),Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     submit = SubmitField("submit")
 
 class RequestForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
-    email = StringField("Email", validators=[DataRequired()])
+    email = EmailField("Email", validators=[DataRequired(),Email()])
     contact_no = StringField("Recipient Contact Number(with country code)", validators=[DataRequired()])
     blood_group = StringField("Which Blood Group Do You Need?", validators=[DataRequired()])
     date_details = StringField("Date of the Blood Drive", validators=[DataRequired()])
