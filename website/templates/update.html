@@ -6,16 +6,16 @@
 <h3 align="centre">Update User....</h3>
 <form action="/user-update/{{user_to_update.id}}"  method="POST">
         <p>{{ form.name.label }} <br>
-           {{ form.name(size=30, value=user_to_update.name) }} </p>
+           {{ form.name(value=user_to_update.name) }} </p>
          
         <p>{{ form.email.label }} <br>
-           {{ form.email(size=100,  value=user_to_update.email) }} </p>
+           {{ form.email(value=user_to_update.email) }} </p>
 
         <p>{{ form.password.label }} <br>
-           {{ form.password(size=50, value=user_to_update.password) }} </p>
+           {{ form.password(value=user_to_update.password) }} </p>
 
         <p>{{ form.blood_group.label }} <br>
-           {{ form.blood_group(size=10, value=user_to_update.blood_group) }} </p>
+           {{ form.blood_group(value=user_to_update.blood_group) }} </p>
 
         <p>{{ form.age.label }} <br>
            {{ form.age( value=user_to_update.age) }} </p>

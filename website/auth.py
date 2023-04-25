@@ -23,8 +23,6 @@ def login():
                 flash('Incorrect password, try again.', category='error')
         else:
             flash('Email does not exist!', category='error')
-    form.email.data = ''
-    form.password.data = ''
 
     if form.is_submitted():
         return redirect('/dashboard')
