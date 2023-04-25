@@ -1,5 +1,4 @@
 Flask
-Flask-SQLAlchemy
 Flask-Migrate
 Flask-SQLAlchemy
 Flask-WTF
@@ -11,3 +10,5 @@ Werkzeug
 WTForms
 wtforms-html5
 email-validator
+mysql-connector-python
+PyMySQL
