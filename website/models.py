@@ -24,3 +24,13 @@ class Plasma(db.Model, UserMixin):
 
     def __repr__(self):
         return '<Plasma {}>'.format(self.project_name)
+
+class Verify(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+    email = db.Column(db.String(150), nullable=False)
+    contact_no = db.Column(db.String(150), nullable=False)
+    address = db.Column(db.TEXT(200), nullable=False)
+
+    def __repr__(self):
+        return '<Verify {}>'.format(self.project_name)

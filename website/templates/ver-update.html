@@ -1,32 +1,32 @@
-{% extends "base.html" %} {% block title %}Add Verified User...{% endblock %}
+{% extends "base.html" %} {% block title %}Update Verified User...{% endblock %}
 {% block content %}
 
 <br>
 <br>
 {% if current_user.id == 1 %}
-<form action="/request-update/{{request_to_update.id}}" method="POST">
+<form action="/ver-update/{{ver_to_update.id}}" method="POST">
     <h3 align="centre">{{title}}</h3>
         <p>
            {{ form.name.label }} <br> 
-           {{form.name(value=request_to_update.name)}}
+           {{form.name(value=ver_to_update.name)}}
         </p>
 
 
         <p>
            {{ form.contact_no.label }} <br>
-           {{form.contact_no( value=request_to_update.contact_no)}}
+           {{form.contact_no( value=ver_to_update.contact_no)}}
         </p>
 
    
         <p>
            {{ form.email.label }} <br>
-           {{form.email( value=request_to_update.email)}}
+           {{form.email( value=ver_to_update.email)}}
         </p>
 
 
         <p>
            {{ form.address.label }} <br>
-           {{ form.address(value= request_to_update.address) }}
+           {{ form.address(value= ver_to_update.address) }}
         </p>    
     
 
@@ -37,7 +37,7 @@
 {% else %}
 
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    Sorry, You cannot edit this request
+    Sorry, You cannot edit this ver
     <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button> 
   </div>
   <h2> Access Denied! </h2>

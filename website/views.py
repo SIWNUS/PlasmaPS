@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, url_for, redirect, flash
 from flask_login import login_required, current_user
 from .form import RequestForm
 from . import db
-from .models import Plasma, User
+from .models import Plasma, User, Verify
  
 views = Blueprint('views',__name__)
 
@@ -32,6 +32,13 @@ def recipient():
 def Board():
     plasma = Plasma.query.all()
     return render_template("board.html", plasma=plasma, user=current_user)
+
+@views.route('/ver-board', methods=['GET'])
+@login_required
+def Ver_Board():
+    adrs = Verify.query.all()
+    return render_template("ver-board.html", adrs=adrs, user=current_user)
+
 
 @views.route('/request', methods=['GET', 'POST'])
 @login_required
@@ -71,6 +78,24 @@ def delete(id):
         flash('You are not authorised!!', category='error')
         return redirect(url_for('views.Board'))
 
+@views.route('/ver-delete/<int:id>')
+@login_required
+def ver_delete(id):
+    adr_to_delete = Verify.query.get_or_404(id)
+    if current_user.id == 1:
+        try:
+            db.session.delete(adr_to_delete)
+            db.session.commit()
+            flash('Verified User Successfully Deleted!!', category='success')
+            return redirect(url_for('views.Ver_Board'))
+        except:
+            flash('Whoops! There was a problem deleting the request!', category='error')
+            return redirect(url_for('views.Ver_Board'))
+    else:
+        flash('You are not authorised!!', category='error')
+        return redirect(url_for('views.Ver_Board'))
+
+
 @views.route('/request-update/<int:id>', methods=['GET', 'POST'])
 @login_required
 def request_update(id):
@@ -94,6 +119,52 @@ def request_update(id):
     else:
         return render_template("update1.html", form=form, request_to_update=request_to_update, user=current_user)
 
+@views.route('/ver-update/<int:id>', methods=['GET', 'POST'])
+@login_required
+def ver_update(id):
+    form = RequestForm()
+    ver_to_update = Verify.query.get_or_404(id)
+    if request.method == "POST":
+        ver_to_update.email = request.form.get('email')
+        ver_to_update.name = request.form.get('name')
+        ver_to_update.reg_no = request.form.get('reg_no')
+        ver_to_update.blood_group = request.form.get('blood_group')
+        ver_to_update.date_details = request.form.get('date_details')
+        ver_to_update.address = request.form.get('address')
+        ver_to_update.details = request.form.get('details')
+        try:
+            db.session.commit()
+            flash("List Updated Successfully!", category = 'success')
+            return redirect('/ver-board')
+        except:
+            flash("Error! There was a problem updating the list!", category = 'error') 
+            return redirect('/ver-board')
+    else:
+        return render_template("ver-update.html", form=form, ver_to_update=ver_to_update, user=current_user)
+
+
+
+@views.route('/request-verify/<int:id>', methods=['GET', 'POST'])
+@login_required
+def request_verify(id):
+    form = RequestForm()
+    request_to_verify = Plasma.query.get_or_404(id)
+    if request.method == "POST":
+        request_to_verify.email = request.form.get('email')
+        request_to_verify.name = request.form.get('name')
+        request_to_verify.contact_no = request.form.get('contact_no')
+        request_to_verify.address = request.form.get('address')
+        adr = Verify.query.order_by(Verify.id)
+        if adr:
+            flash('Already verified',category='error')
+        else:
+            new_adr = Verify(name=form.name.data, email=form.email.data, contact_no=form.contact_no.data, address=form.address.data)
+            db.session.add(new_adr)
+            db.session.commit()
+            flash("Request verified Successfully!", category = 'success')
+            return redirect('/ver-board')
+
+    return render_template("verify.html", form=form, request_to_verify=request_to_verify, user=current_user)
 
 @views.route('/dashboard')
 @login_required

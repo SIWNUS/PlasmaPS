@@ -27,6 +27,7 @@
 
           {% elif current_user.id == 1 %}
              <a href="{{url_for('views.delete', id = entry.id)}}" class="btn btn-danger btn-small">Delete</a>
+             <a href="{{url_for('views.request_verify', id = entry.id)}}" class="btn btn-success btn-small">Verify</a>
           {% endif %}
          
         </p>

@@ -4,29 +4,29 @@
 <br>
 <br>
 {% if current_user.id == 1 %}
-<form action="/request-update/{{request_to_update.id}}" method="POST">
+<form action="/request-verify/{{request_to_verify.id}}" method="POST">
     <h3 align="centre">{{title}}</h3>
         <p>
            {{ form.name.label }} <br> 
-           {{form.name(value=request_to_update.name)}}
+           {{form.name(value=request_to_verify.name)}}
         </p>
 
 
         <p>
            {{ form.contact_no.label }} <br>
-           {{form.contact_no( value=request_to_update.contact_no)}}
+           {{form.contact_no( value=request_to_verify.contact_no)}}
         </p>
 
    
         <p>
            {{ form.email.label }} <br>
-           {{form.email( value=request_to_update.email)}}
+           {{form.email( value=request_to_verify.email)}}
         </p>
 
 
         <p>
            {{ form.address.label }} <br>
-           {{ form.address(value= request_to_update.address) }}
+           {{ form.address(value= request_to_verify.address) }}
         </p>    
     
 

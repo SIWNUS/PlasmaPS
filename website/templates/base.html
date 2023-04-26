@@ -101,6 +101,10 @@
       <div class="collapse navbar-collapse navbar-default justify-content-end" id="navbarCollapse">
         <ul class="navbar-nav">
             {% if current_user.is_authenticated %}                             
+                
+                {% if current_user.id == 1  %}
+                    <a class="nav-item nav-link text-info" id="ver-board" href="/ver-board">Verified List</a>
+                {% endif  %}
                 <a class="nav-item nav-link text-info" id="request-board" href="/board">Request-Board</a>
                 <a class="nav-item nav-link text-info" id="request" href="/request">Request</a>
                 <a class="nav-item nav-link text-info" id="dashboard" href="/dashboard">Dashboard</a>

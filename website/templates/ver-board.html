@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Request adrs{% endblock %}
+{% block content %}
+<br><br>
+<h5 class="card-title">Welcome to The Request Board, Administrator. </h5>
+
+<div class="container">
+  <div class="row">
+  {% for adr in adrs %}
+  <div class="container col-6">
+  <div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Verifird User Id: {{adr.id}}</div>
+      <div class="card-body text-info" >
+        <p class="card-text">
+          <strong>Name :</strong>{{adr.name}}<br/>
+          <strong>Email :</strong>{{adr.email}}<br/>
+          <strong>Contact No :</strong>{{adr.contact_no}}<br/>
+          <strong>Address :</strong>{{adr.address}}<br/>
+          <a href="{{url_for('views.ver_update', id = adr.id)}}" class="btn btn-primary btn-small">Update</a>
+          <a href="{{url_for('views.ver_delete', id = adr.id)}}" class="btn btn-danger btn-small">Delete</a>         
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+  </div>
+</div>     
+
+
+
+{% endblock %}
