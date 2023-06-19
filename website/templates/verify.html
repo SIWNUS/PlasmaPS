@@ -23,6 +23,21 @@
            {{form.email( value=request_to_verify.email)}}
         </p>
 
+        <p>
+           {{ form.blood_group.label }} <br> 
+           {{form.blood_group(value=request_to_verify.blood_group)}}
+        </p>
+
+        <p>
+           {{ form.date_details.label }} <br> 
+           {{form.date_details(value=request_to_verify.date_details)}}
+        </p>
+
+        <p>
+           {{ form.details.label }} <br> 
+           {{form.details(value=request_to_verify.details)}}
+        </p>
+
 
         <p>
            {{ form.address.label }} <br>

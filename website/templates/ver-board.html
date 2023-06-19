@@ -1,8 +1,11 @@
-{% extends "base.html" %} {% block title %}Request adrs{% endblock %}
+{% extends "base.html" %} {% block title %}Verified Request List{% endblock %}
 {% block content %}
 <br><br>
-<h5 class="card-title">Welcome to The Request Board, Administrator. </h5>
-
+{% if current_user.id == 1 %}
+    <h5 class="card-title">Welcome to The Request Board, Administrator. </h5>
+{% else  %}
+    <h5 class="card-title">Welcome to The Request Board, {{current_user.name }} </h5>
+{% endif  %}
 <div class="container">
   <div class="row">
   {% for adr in adrs %}
@@ -14,13 +17,19 @@
           <strong>Name :</strong>{{adr.name}}<br/>
           <strong>Email :</strong>{{adr.email}}<br/>
           <strong>Contact No :</strong>{{adr.contact_no}}<br/>
+          <strong>Blood Group :</strong>{{adr.blood_group}}<br/>
+          <strong>Date :</strong>{{adr.date_details}}<br/>
+          <strong>Details :</strong>{{adr.details}}<br/>
           <strong>Address :</strong>{{adr.address}}<br/>
-          <a href="{{url_for('views.ver_update', id = adr.id)}}" class="btn btn-primary btn-small">Update</a>
-          <a href="{{url_for('views.ver_delete', id = adr.id)}}" class="btn btn-danger btn-small">Delete</a>         
+          {% if current_user.email == adr.email  %}
+              <a href="{{url_for('views.ver_update', id = adr.id)}}" class="btn btn-primary btn-small">Update</a>
+              <a href="{{url_for('views.ver_delete', id = adr.id)}}" class="btn btn-danger btn-small">Delete</a>         
+          {% elif current_user.id == 1  %}
+              <a href="{{url_for('views.ver_delete', id = adr.id)}}" class="btn btn-danger btn-small">Delete</a>         
+          {% endif  %}
         </p>
       </div>
     </div>
-  </div>
   </div>
   {% endfor %}
   </div>

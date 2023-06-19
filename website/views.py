@@ -57,14 +57,14 @@ def Request():
         db.session.add(new_entry)
         db.session.commit()
         flash('Request Posted', category='success')
-        return redirect(url_for('views.Board'))
+        return redirect(url_for('views.home'))
     return render_template("apply.html", form=form, user=current_user)
 
 @views.route('/delete/<int:id>')
 @login_required
 def delete(id):
     entry_to_delete = Plasma.query.get_or_404(id)
-    id =  current_user.email
+    id = current_user.email
     if id == entry_to_delete.email or current_user.id == 1:
         try:
             db.session.delete(entry_to_delete)
@@ -82,7 +82,8 @@ def delete(id):
 @login_required
 def ver_delete(id):
     adr_to_delete = Verify.query.get_or_404(id)
-    if current_user.id == 1:
+    id = current_user.email
+    if id == adr_to_delete.email or current_user.id == 1:
         try:
             db.session.delete(adr_to_delete)
             db.session.commit()
@@ -91,10 +92,10 @@ def ver_delete(id):
         except:
             flash('Whoops! There was a problem deleting the request!', category='error')
             return redirect(url_for('views.Ver_Board'))
+
     else:
         flash('You are not authorised!!', category='error')
         return redirect(url_for('views.Ver_Board'))
-
 
 @views.route('/request-update/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -153,16 +154,16 @@ def request_verify(id):
         request_to_verify.email = request.form.get('email')
         request_to_verify.name = request.form.get('name')
         request_to_verify.contact_no = request.form.get('contact_no')
+        request_to_verify.blood_group = request.form.get('blood_group')
+        request_to_verify.date_details = request.form.get('date_details')
+        request_to_verify.details = request.form.get('details')
         request_to_verify.address = request.form.get('address')
         adr = Verify.query.order_by(Verify.id)
-        if adr:
-            flash('Already verified',category='error')
-        else:
-            new_adr = Verify(name=form.name.data, email=form.email.data, contact_no=form.contact_no.data, address=form.address.data)
-            db.session.add(new_adr)
-            db.session.commit()
-            flash("Request verified Successfully!", category = 'success')
-            return redirect('/ver-board')
+        new_adr = Verify(name=form.name.data, email=form.email.data, contact_no=form.contact_no.data, blood_group=form.blood_group.data, date_details=form.date_details.data, address=form.address.data, details=form.details.data)
+        db.session.add(new_adr)
+        db.session.commit()
+        flash("Request verified Successfully!", category = 'success')
+        return redirect('/ver-board')
 
     return render_template("verify.html", form=form, request_to_verify=request_to_verify, user=current_user)
 

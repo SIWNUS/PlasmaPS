@@ -3,7 +3,7 @@
 
 <br>
 <br>
-{% if current_user.id == 1 %}
+
 <form action="/ver-update/{{ver_to_update.id}}" method="POST">
     <h3 align="centre">{{title}}</h3>
         <p>
@@ -25,6 +25,22 @@
 
 
         <p>
+           {{ form.blood_group.label }} <br>
+           {{ form.blood_group(value= ver_to_update.blood_group) }}
+        </p>    
+    
+        <p>
+           {{ form.date_details.label }} <br>
+           {{ form.date_details(value= ver_to_update.date_details) }}
+        </p>    
+    
+        <p>
+           {{ form.details.label }} <br>
+           {{ form.details(value= ver_to_update.details) }}
+        </p>    
+    
+
+        <p>
            {{ form.address.label }} <br>
            {{ form.address(value= ver_to_update.address) }}
         </p>    
@@ -34,7 +50,7 @@
 
 </form>
 
-{% else %}
+{% if current_user.email != ver_to_update.email %}
 
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     Sorry, You cannot edit this ver

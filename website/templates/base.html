@@ -102,10 +102,10 @@
         <ul class="navbar-nav">
             {% if current_user.is_authenticated %}                             
                 
-                {% if current_user.id == 1  %}
-                    <a class="nav-item nav-link text-info" id="ver-board" href="/ver-board">Verified List</a>
+                {% if current_user.id == 1 %}
+                     <a class="nav-item nav-link text-info" id="request-board" href="/board">Request-Board</a>
                 {% endif  %}
-                <a class="nav-item nav-link text-info" id="request-board" href="/board">Request-Board</a>
+                <a class="nav-item nav-link text-info" id="ver-board" href="/ver-board">Verified List</a>
                 <a class="nav-item nav-link text-info" id="request" href="/request">Request</a>
                 <a class="nav-item nav-link text-info" id="dashboard" href="/dashboard">Dashboard</a>
             {% else %}

@@ -1,11 +1,9 @@
 {% extends "base.html" %} {% block title %}Request Plasma{% endblock %}
 {% block content %}
 <br><br>
-{% if current_user.id == 1 %}
-    <h5 class="card-title">Welcome to The Request Board, Administrator. </h5>
-{% else %}
-    <h5 class="card-title">Welcome to The Request Board, {{current_user.name}}</h5>
-{% endif %}
+
+<h5 class="card-title">Welcome to The Request Board, Administrator. </h5>
+
 <div class="container">
   <div class="row">
   {% for entry in plasma %}
@@ -21,14 +19,8 @@
           <strong>Date :</strong>{{entry.date_details}}<br/>
           <strong>Details :</strong>{{entry.details}}<br/>
           <strong>Address :</strong>{{entry.address}}<br/>
-          {% if current_user.email == entry.email %}
-             <a href="{{url_for('views.request_update', id = entry.id)}}" class="btn btn-primary btn-small">Update</a>
-             <a href="{{url_for('views.delete', id = entry.id)}}" class="btn btn-danger btn-small">Delete</a>
-
-          {% elif current_user.id == 1 %}
-             <a href="{{url_for('views.delete', id = entry.id)}}" class="btn btn-danger btn-small">Delete</a>
-             <a href="{{url_for('views.request_verify', id = entry.id)}}" class="btn btn-success btn-small">Verify</a>
-          {% endif %}
+          <a href="{{url_for('views.delete', id = entry.id)}}" class="btn btn-danger btn-small">Delete</a>
+          <a href="{{url_for('views.request_verify', id = entry.id)}}" class="btn btn-success btn-small">Verify</a>
          
         </p>
       </div>
