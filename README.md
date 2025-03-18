@@ -28,3 +28,38 @@ To try this website locally, follow my instructions:
 9. Now try to import the module in python. It will work.
 
 10. Now just do "$python main.py" and it will run.
+
+
+# Documentation
+
+# Project Overview
+A solo-developed web application designed to facilitate plasma donation by connecting donors with recipients. The project aimed to simplify and streamline the communication and logistics involved in plasma donation.
+
+# Technologies Used
+
+Backend: Python, Flask
+
+Frontend: HTML, CSS, JavaScript, Bootstrap, Jinja2 templates
+
+Database: MySQL with Flask-SQLAlchemy for ORM
+
+
+# Key Features
+
+User-Centric Design: Developed an accessible and easy-to-navigate interface using responsive design principles.
+
+Database Integration: Implemented a robust MySQL database schema that efficiently manages donor and recipient information.
+
+ORM Functionality: Utilized Flask-SQLAlchemy to abstract and simplify database interactions, improving code maintainability and scalability.
+
+
+# Challenges & Solutions
+
+Connecting Stakeholders: Built a system to reliably match donors with recipients, ensuring that communication is smooth and data is securely handled.
+
+Scalability: Optimized the application to manage structured data efficiently and support analytical queries as the user base grows.
+
+
+# Live Demo
+
+http://suswin.pythonanywhere.com/
